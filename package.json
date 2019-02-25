@@ -4,7 +4,8 @@
   "description": "dr patient app",
   "main": "app.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
