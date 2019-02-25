@@ -1,0 +1,31 @@
+{
+  "name": "clinby",
+  "version": "1.0.0",
+  "description": "dr patient app",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nit-1997/clinby.git"
+  },
+  "author": "nitin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nit-1997/clinby/issues"
+  },
+  "homepage": "https://github.com/Nit-1997/clinby#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cloudinary": "^1.13.2",
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "moment": "^2.24.0",
+    "mongoose": "^5.4.15",
+    "multer": "^1.4.1",
+    "passport-local": "^1.0.0"
+  }
+}
