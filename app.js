@@ -90,37 +90,25 @@ app.post('/registerDoctor',function(req,res){
 });
 
 app.get('/allDoctors',function(req,res){
-   Doctor.find({},function(err,allDoctors){
-            if(err){
-                console.log(err);
-            } 
-            else{
-              res.send(allDoctors);
-             // res.render("allDoctors",{doctors:allDoctors});         
-            }
-    });
+   // Doctor.find({},function(err,allDoctors){
+   //          if(err){
+   //              console.log(err);
+   //          } 
+   //          else{
+   //            res.send(allDoctors);
+   //           // res.render("allDoctors",{doctors:allDoctors});         
+   //          }
+   //  });
+   res.render('allDoctors');
 });
 
 
 
-// app.listen(7000,function(){
-//      console.log("clinby");
+app.listen(7000,function(){
+     console.log("clinby");
+});
+
+// app.listen(process.env.PORT,process.env.IP,function(){
+//      console.log("app server has started on heroku ");
 // });
 
-app.listen(process.env.PORT,process.env.IP,function(){
-     console.log("app server has started on heroku ");
-});
-
-/*
-
-TODO LIST
- 
-1. every day appointment -> 100
-2. patient -> <books> -> appointment
-    for appointment
-      >Name
-      >phone number
-      >time slot 
-3. 
-
-*/
