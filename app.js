@@ -7,7 +7,8 @@ var  express        = require("express")
    , Doctor           = require("./models/doctors")
    , LocalStrategy  = require("passport-local");
 
-mongoose.connect('mongodb://nitin:nitin1979@ds153314.mlab.com:53314/sparshdb');
+//mongoose.connect('mongodb://nitin:nitin1979@ds153314.mlab.com:53314/sparshdb');
+mongoose.connect('mongodb://nitin:nitin1979@ds035836.mlab.com:35836/clinbydb');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname+"/public"));
 app.use(bodyParser.json({limit: "50mb"}));
@@ -33,7 +34,7 @@ app.get(['/home','/','/landing'],function(req,res){
 });
 
 app.get('/createDoctor',function(req,res){
-  res.render('createDoctor');
+  res.render('createDoctors');
 });
 
 //**************//
@@ -62,14 +63,16 @@ cloudinary.config({
 });
 
 
-app.post('/registerDoctor',function(req,res){
+app.post('/registerDoctor',upload.single('image'),function(req,res){
+     console.log(req.body);
      var doctor = {
      	fullName:req.body.fullName,
      	experience:req.body.experience,
      	special:req.body.special,
      	consultation:req.body.consultation,
-     	location:req.body.location,
-     	image:req.body.image
+     	location:req.body.address,
+     	image:req.body.image,
+      rating:req.body.rating
      };
   
          cloudinary.uploader.upload(req.file.path, function(result) {
@@ -90,16 +93,24 @@ app.post('/registerDoctor',function(req,res){
 });
 
 app.get('/allDoctors',function(req,res){
-   // Doctor.find({},function(err,allDoctors){
-   //          if(err){
-   //              console.log(err);
-   //          } 
-   //          else{
-   //            res.send(allDoctors);
-   //           // res.render("allDoctors",{doctors:allDoctors});         
-   //          }
-   //  });
-   res.render('allDoctors');
+   Doctor.find({},function(err,allDoctors){
+            if(err){
+                console.log(err);
+            } 
+            else{
+             // res.send(allDoctors);
+              res.render("allDoctors",{doctors:allDoctors});         
+            }
+    });
+});
+
+app.get('/booked',function(req,res){
+  res.send("<h1>Appointment Booked</h1>");
+});
+
+app.post('/book',function(req,res){
+  console.log(req.body);
+  res.redirect('/booked');
 });
 
 

@@ -105,122 +105,28 @@
 			<h1 class="pubs"><strong>Hand picked physiotherapis:-</strong></h1>
 			<br><br>
        
+      <% doctors.forEach(function(doctor){ %> 
       <div class="event">
       <div class="row ht40">
-        <div class="col-md-4 col-sm-12 col-xs-12 ht40"><img class=newimg src="../assets/images/4.jpg"></div>
+        <div class="col-md-4 col-sm-12 col-xs-12 ht40"><img class=newimg src="<%=doctor.image%>"></div>
         <div class="col-md-8 col-sm-12 col-xs-12 ht40 pubdet">
-            <h3 class="pubnm">Dr. Sharma</h3>
-            <p class="lct"><strong> bombay 70,mumbai</strong></p>
-            <p class="st"><span class="cst"><strong>Consultation charges:</strong> </span> <strong>Rs 200/- </strong><span class="cst">(approx)</span> | <a href=#>view certifications</a></p>
-            <p class="st"><span class="cst"><strong>Ratings -</strong></span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-            <div class="btn btn-primary"><a href="">View Details</a></div>
+            <h3 class="pubnm"><%=doctor.fullName%></h3>
+            <p class="lct"><strong><%=doctor.location%></strong></p>
+            <p class="st"><span class="cst"><strong>Consultation charges:</strong> </span> <strong>Rs <%=doctor.consultation%>/- </strong><span class="cst">(approx)</span> | <a href=#>view certifications</a></p>
+            <p class="st"><span class="cst"><strong>Ratings -</strong></span>
+              <%for(var i=0;i< doctor.rating;i++){%>
+                <i class="fas fa-star"></i>
+               <%}%>
+            </p>
+            <div class="btn btn-primary"><a href="#responsive" data-toggle="modal" data-target="#login-signup-modal">View Details</a></div>
         </div>
       </div>
       </div> 
+      <%})%>
 
-      <div class="event">
-      <div class="row ht40">
-        <div class="col-md-4 col-sm-12 col-xs-12 ht40"><img class=newimg src="../assets/images/4.jpg"></div>
-        <div class="col-md-8 col-sm-12 col-xs-12 ht40 pubdet">
-            <h3 class="pubnm">Dr. Sharma</h3>
-            <p class="lct"><strong> bombay 70,mumbai</strong></p>
-            <p class="st"><span class="cst"><strong>Consultation charges:</strong> </span> <strong>Rs 200/- </strong><span class="cst">(approx)</span> | <a href=#>view certifications</a></p>
-            <p class="st"><span class="cst"><strong>Ratings -</strong></span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-            <div class="btn btn-primary"><a href="">View Details</a></div>
-        </div>
-      </div>
-      </div> 
+      
 
-      <div class="event">
-      <div class="row ht40">
-        <div class="col-md-4 col-sm-12 col-xs-12 ht40"><img class=newimg src="../assets/images/4.jpg"></div>
-        <div class="col-md-8 col-sm-12 col-xs-12 ht40 pubdet">
-            <h3 class="pubnm">Dr. Sharma</h3>
-            <p class="lct"><strong> bombay 70,mumbai</strong></p>
-            <p class="st"><span class="cst"><strong>Consultation charges:</strong> </span> <strong>Rs 200/- </strong><span class="cst">(approx)</span> | <a href=#>view certifications</a></p>
-            <p class="st"><span class="cst"><strong>Ratings -</strong></span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-            <div class="btn btn-primary"><a href="">View Details</a></div>
-        </div>
-      </div>
-      </div> 
 
-      <div class="event">
-      <div class="row ht40">
-        <div class="col-md-4 col-sm-12 col-xs-12 ht40"><img class=newimg src="../assets/images/4.jpg"></div>
-        <div class="col-md-8 col-sm-12 col-xs-12 ht40 pubdet">
-            <h3 class="pubnm">Dr. Sharma</h3>
-            <p class="lct"><strong> bombay 70,mumbai</strong></p>
-            <p class="st"><span class="cst"><strong>Consultation charges:</strong> </span> <strong>Rs 200/- </strong><span class="cst">(approx)</span> | <a href=#>view certifications</a></p>
-            <p class="st"><span class="cst"><strong>Ratings -</strong></span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-            <div class="btn btn-primary"><a href="">View Details</a></div>
-        </div>
-      </div>
-      </div> 
-
-      <div class="event">
-      <div class="row ht40">
-        <div class="col-md-4 col-sm-12 col-xs-12 ht40"><img class=newimg src="../assets/images/4.jpg"></div>
-        <div class="col-md-8 col-sm-12 col-xs-12 ht40 pubdet">
-            <h3 class="pubnm">Dr. Sharma</h3>
-            <p class="lct"><strong> bombay 70,mumbai</strong></p>
-            <p class="st"><span class="cst"><strong>Consultation charges:</strong> </span> <strong>Rs 200/- </strong><span class="cst">(approx)</span> | <a href=#>view certifications</a></p>
-            <p class="st"><span class="cst"><strong>Ratings -</strong></span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-            <div class="btn btn-primary"><a href="">View Details</a></div>
-        </div>
-      </div>
-      </div> 
-
-      <div class="event">
-      <div class="row ht40">
-        <div class="col-md-4 col-sm-12 col-xs-12 ht40"><img class=newimg src="../assets/images/4.jpg"></div>
-        <div class="col-md-8 col-sm-12 col-xs-12 ht40 pubdet">
-            <h3 class="pubnm">Dr. Sharma</h3>
-            <p class="lct"><strong> bombay 70,mumbai</strong></p>
-            <p class="st"><span class="cst"><strong>Consultation charges:</strong> </span> <strong>Rs 200/- </strong><span class="cst">(approx)</span> | <a href=#>view certifications</a></p>
-            <p class="st"><span class="cst"><strong>Ratings -</strong></span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-            <div class="btn btn-primary"><a href="">View Details</a></div>
-        </div>
-      </div>
-      </div> 
-
-      <div class="event">
-      <div class="row ht40">
-        <div class="col-md-4 col-sm-12 col-xs-12 ht40"><img class=newimg src="../assets/images/4.jpg"></div>
-        <div class="col-md-8 col-sm-12 col-xs-12 ht40 pubdet">
-            <h3 class="pubnm">Dr. Sharma</h3>
-            <p class="lct"><strong> bombay 70,mumbai</strong></p>
-            <p class="st"><span class="cst"><strong>Consultation charges:</strong> </span> <strong>Rs 200/- </strong><span class="cst">(approx)</span> | <a href=#>view certifications</a></p>
-            <p class="st"><span class="cst"><strong>Ratings -</strong></span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-            <div class="btn btn-primary"><a href="">View Details</a></div>
-        </div>
-      </div>
-      </div> 
-
-      <div class="event">
-      <div class="row ht40">
-        <div class="col-md-4 col-sm-12 col-xs-12 ht40"><img class=newimg src="../assets/images/4.jpg"></div>
-        <div class="col-md-8 col-sm-12 col-xs-12 ht40 pubdet">
-            <h3 class="pubnm">Dr. Sharma</h3>
-            <p class="lct"><strong> bombay 70,mumbai</strong></p>
-            <p class="st"><span class="cst"><strong>Consultation charges:</strong> </span> <strong>Rs 200/- </strong><span class="cst">(approx)</span> | <a href=#>view certifications</a></p>
-            <p class="st"><span class="cst"><strong>Ratings -</strong></span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-            <div class="btn btn-primary"><a href="">View Details</a></div>
-        </div>
-      </div>
-      </div> 
-
-      <div class="event">
-      <div class="row ht40">
-        <div class="col-md-4 col-sm-12 col-xs-12 ht40"><img class=newimg src="../assets/images/4.jpg"></div>
-        <div class="col-md-8 col-sm-12 col-xs-12 ht40 pubdet">
-            <h3 class="pubnm">Dr. Sharma</h3>
-            <p class="lct"><strong> bombay 70,mumbai</strong></p>
-            <p class="st"><span class="cst"><strong>Consultation charges:</strong> </span> <strong>Rs 200/- </strong><span class="cst">(approx)</span> | <a href=#>view certifications</a></p>
-            <p class="st"><span class="cst"><strong>Ratings -</strong></span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-            <div class="btn btn-primary"><a href="">View Details</a></div>
-        </div>
-      </div>
-      </div> 
 		</div>
 		<div class="col-md-1 col-sm-1 col-xs-12 ht0"></div>
 	</div>
@@ -228,31 +134,53 @@
 
 <br>
 
-<!--footer-->
-  <!-- <section class="ht450 foot">
-  	 <div class="row ht150">
-  	 	<div class="col-md-3 col-sm-12 col-xs-12 ht20 footlf">Clubbo</div>
-  	 	<div class="col-md-6 col-sm-12 col-xs-12 ht160 footer">
-  	 		<div class="row ht160">
-  	 			<div class="col-md-6 col-sm-6 col-xs-6 ht160">
-  	 				<ul class="high">
-  	 					<li class="lih"><strong>My Account</strong></li>
-  	 					<li>Dashboard</li>
-  	 					<li>My bookings</li>
-  	 				</ul>
-  	 			</div>
-  	 			<div class="col-md-6 col-sm-6 col-xs-6 ht160">
-  	 				<ul class="high">
-  	 					<li class="lih"><strong>Help</strong></li>
-  	 					<li>Privacy Policy</li>
-  	 					<li>FAQs</li>
-  	 				</ul>
-  	 			</div>
-  	 		</div>
-  	 	</div>
-  	 	<div class="col-md-3 col-sm-12 col-xs-12 ht0"></div>
-  	 </div>
-  </section> -->
+
+
+  <!--Login, Signup, Forgot Password Modal -->
+  <div id="login-signup-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+
+      <!-- login modal content -->
+      <div class="modal-content" id="login-modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title"><span class="fas fa-lock"></i></span> Book your appointment</h4>
+        </div>
+
+        <div class="modal-body">
+          <form action="/book" method="POST" id="Login-Form" role="form" data-toggle="validator">
+
+           <div class="form-group">
+              <label for="inputName" class="control-label">Full Name</label>
+              <input type="text" class="form-control" name="fullName" id="inputName" placeholder="Enter Full Name" data-minlength="2"
+                data-error="Enter your Full Name!" required>
+              <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputEmail" class="control-label">Email</label>
+              <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Email" data-error="Email Address is invalid!"
+                required>
+              <div class="help-block with-errors"></div>
+            </div>
+
+             <div class="form-group">
+              <label for="inputNumber" class="control-label">Contact Number</label>
+              <input class="form-control" name="phoneNo" id="inputNumber" placeholder="Enter Mobile Number" data-error="Enter valid mobile number!"
+                type="text" placeholder="Mobile.no"  pattern="[0-9]{10}" title="Ten digit phone number" required required>
+              <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-success btn-block btn-lg">Book Appointment</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
   
   <!--jQuery-->
   <script type="text/javascript" src="../assets/lib/jquery.min.js"></script>
