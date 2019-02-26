@@ -7,6 +7,8 @@ var  express        = require("express")
    , Doctor           = require("./models/doctors")
    , LocalStrategy  = require("passport-local");
 
+var nodemailer = require('nodemailer');
+
 //mongoose.connect('mongodb://nitin:nitin1979@ds153314.mlab.com:53314/sparshdb');
 mongoose.connect('mongodb://nitin:nitin1979@ds035836.mlab.com:35836/clinbydb');
 app.use(bodyParser.urlencoded({extended:true}));
@@ -105,12 +107,40 @@ app.get('/allDoctors',function(req,res){
 });
 
 app.get('/booked',function(req,res){
-  res.send("<h1>Appointment Booked</h1>");
+  //res.send("<h1>Appointment Booked</h1>");
+  res.render('booked');
 });
 
 app.post('/book',function(req,res){
   console.log(req.body);
-  res.redirect('/booked');
+
+
+
+ var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'clinbyapp@gmail.com',
+        pass: 'Nit@1979'
+       }
+  });
+
+ var body = "Details of the Patient are as follows:-\nName: "+req.body.fullName+"\nemail: "+req.body.email+"\nPhone Number: "+req.body.phoneNo;
+
+ var mailOptions = {
+    from: 'clinbyapp@gmail.com',
+    to: 'nitin.crive@gmail.com',
+    subject: 'New Appointment on clinby',
+    text: body
+  };
+
+ transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+       res.redirect('/booked');
+    }
+  });
 });
 
 
