@@ -104,11 +104,11 @@ app.get('/allDoctors',function(req,res){
 
 
 
-app.listen(7000,function(){
-     console.log("clinby");
-});
-
-// app.listen(process.env.PORT,process.env.IP,function(){
-//      console.log("app server has started on heroku ");
+// app.listen(7000,function(){
+//      console.log("clinby");
 // });
+
+app.listen(process.env.PORT,process.env.IP,function(){
+     console.log("app server has started on heroku ");
+});
 
