@@ -135,7 +135,7 @@ app.post('/book',function(req,res){
 
  var mailOptions = {
     from: 'clinbyapp@gmail.com',
-    to: 'nitin.crive@gmail.com',
+    to: 'abhishekkaul9@gmail.com',
     subject: 'New Appointment on clinby',
     text: body
   };
@@ -230,13 +230,13 @@ app.get("/logout",function(req,res){
 });
 
 
-app.listen(7000,function(){
-     console.log("clinby");
-});
-
-// app.listen(process.env.PORT,process.env.IP,function(){
-//      console.log("app server has started on heroku ");
+// app.listen(7000,function(){
+//      console.log("clinby");
 // });
+
+app.listen(process.env.PORT,process.env.IP,function(){
+     console.log("app server has started on heroku ");
+});
 
 
 //credentials
