@@ -276,7 +276,7 @@ h1, h1 {
   color:#605E5E;
 }
 .rating1{
- padding: 16px 44px 8px 44px;
+ padding: -1px 44px 8px 44px;
  color:#605E5E;
 }
 
@@ -287,7 +287,7 @@ h1, h1 {
 }
 
 .circle1{
-	background: url('../../assets/images/n.jpg');
+	background: url('../../assets/images/n.jpeg');
 	background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -298,7 +298,7 @@ h1, h1 {
 
 @media only screen and (min-width: 768px){
 	.circle1{
-		background: url('../../assets/images/n.jpg');
+		background: url('../../assets/images/n.jpeg');
 		background-size: cover;
 	    background-repeat: no-repeat;
 	    background-position: center;
@@ -309,7 +309,7 @@ h1, h1 {
 }
 
 .circle2{
-	background: url('../../assets/images/m.jpg');
+	background: url('../../assets/images/m.jpeg');
 	background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -320,7 +320,7 @@ h1, h1 {
 
 @media only screen and (min-width: 768px){
 	.circle2{
-		background: url('../../assets/images/m.jpg');
+		background: url('../../assets/images/m.jpeg');
 		background-size: cover;
 	    background-repeat: no-repeat;
 	    background-position: center;
@@ -331,7 +331,7 @@ h1, h1 {
 }
 
 .circle3{
-	background: url('../../assets/images/h.jpg');
+	background: url('../../assets/images/h.jpeg');
 	background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -342,7 +342,7 @@ h1, h1 {
 
 @media only screen and (min-width: 768px){
 	.circle3{
-			background: url('../../assets/images/h.jpg');
+			background: url('../../assets/images/h.jpeg');
 			background-size: cover;
 		    background-repeat: no-repeat;
 		    background-position: center;
@@ -364,7 +364,7 @@ h1, h1 {
     position: absolute;
 }
 .circle5{
-	background: url('../../assets/images/t.jpg');
+	background: url('../../assets/images/nitin.jpg');
 	background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
