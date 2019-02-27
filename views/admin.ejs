@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Clinby</title>
+  <!-- Tell the browser to be responsive to screen width -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="assets/bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="assets/bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="assets/dist/css/skins/_all-skins.min.css">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="assets/bower_components/morris.js/morris.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="assets/bower_components/jvectormap/jquery-jvectormap.css">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="assets/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="assets/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+  <!-- bootstrap wysihtml5 - text editor -->
+
+ <link rel="stylesheet" href="../assets/lib/bootstrap.min.css" />
+   <link href="../assets/css/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+   <link href="../assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+     <!-- font-awesome icon -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+     <!--main.css-->
+     <link rel="stylesheet" type="text/css" href="../assets/css/singlePubView.css" />
+     <!--google font-->
+     <link href="https://fonts.googleapis.com/css?family=Damion" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Raleway" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Nunito:300" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Concert+One" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Tajawal:700" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Assistant" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed" rel="stylesheet"> 
+  
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<body class="hold-transition skin-blue sidebar-mini" ng-app="">
+<div class="wrapper">
+
+<!--navbar-->	
+ <header> 
+  <nav class="navbar navbar-inverse no-margin  navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>    
+    </div>
+    <a class="navbar-brand" href="/landing">Clinby</a>
+    <div class="navbar-collapse collapse">
+     <ul class="nav navbar-nav navbar-left">
+        <li><a href="#">Discover <i class="fas fa-search"></i></a></li>
+     </ul>
+     <ul class="nav navbar-nav navbar-right">
+    
+     </ul>
+    </div>
+  </nav>
+ </header>
+
+ <br><br><br><br>
+
+ <% if(error && error.length>0){%> 
+             <div class="container">
+                  <div class="alert alert-danger" role="alert">
+                      <%=error%>
+                  </div> 
+             </div>
+    <% }%>
+     <% if(success && success.length>0){%>
+             <div class="container">
+                  <div class="alert alert-success" role="alert">
+                      <%=success%>
+                  </div> 
+             </div>
+    <% }%>        
+  
+
+  <div class="content-wrapper" >
+    <section class="content-header">
+      <h1>
+        Dashboard
+        <small>Control panel</small>
+      </h1>
+    </section>
+
+
+    <section class="content">
+      <div class="row">
+        
+        <div class="col-lg-6 col-xs-6">
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><%=doctors.length%></h3>
+              <p>Doctor Registrations</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-xs-6">
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3><a href="/createDoctor"><button class="btn-primary">Add a Doctor</button></a></h3>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+ </section>
+
+    <section class="content-header">
+      <h1>
+        Doctors registered on our system
+        <small>in ascending order of booked date</small>
+      </h1>
+    </section>
+
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>Sr.No</th>
+                  <th>Full Name</th>
+                  <th>Address</th>
+                  <th>Method</th>
+                </tr>
+                </thead>
+                <tbody>
+                 <% for(var i=0;i< doctors.length;i++){%>
+                  <tr>
+                    <td><%=i+1%></td>
+                    <td><%= doctors[i].fullName%></td>
+                    <td><%= doctors[i].location%></td>
+                    <td><a href="/deleteDoctor/<%=doctors[i]._id%>"><button class="btn-danger">Delete</button></a></td> 
+                  </tr> 
+                 <% }%>
+                </tbody>
+              </table>
+            </div>
+          </div>         
+        </div>
+      </div>
+    </section>
+    
+<!--     <ul class="pagination">
+      <li><a href=""><span>Previous</span></a></li>
+      <li><a href="">1</a></li>
+      <li><a href="">2</a></li>
+      <li><a href="">3</a></li>
+      <li><a href="">4</a></li>
+      <li><a href="">5</a></li>
+      <li><a href=""><span>Next</span></a></li>
+    </ul> -->
+          
+
+ </div>
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2018 <a href="https://adminlte.io">Clinby pvt ltd</a>.</strong>
+  </footer>
+
+  
+
+
+
+<!-- jQuery 3 -->
+<script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="assets/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button);
+</script>
+<!-- Bootstrap 3.3.7 -->
+<script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Morris.js charts -->
+<script src="assets/bower_components/raphael/raphael.min.js"></script>
+<script src="assets/bower_components/morris.js/morris.min.js"></script>
+<!-- Sparkline -->
+<script src="assets/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+<!-- jvectormap -->
+<script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="assets/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="assets/bower_components/moment/min/moment.min.js"></script>
+<script src="assets/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- datepicker -->
+<script src="assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<!-- Slimscroll -->
+<script src="assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="assets/bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="assets/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="assets/dist/js/pages/dashboard.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="assets/dist/js/demo.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="assets/js/pagination.js"></script>
+</body>
+</html>

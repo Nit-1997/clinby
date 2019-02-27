@@ -2,9 +2,10 @@ var  express        = require("express")
    , app            = express()
    , bodyParser     = require("body-parser")
    , mongoose       = require("mongoose")
+   , passport       = require("passport")
    , flash          = require("connect-flash")
-  // , User           = require("./models/user")
-   , Doctor           = require("./models/doctors")
+   , User           = require("./models/user")
+   , Doctor         = require("./models/doctors")
    , LocalStrategy  = require("passport-local");
 
 var nodemailer = require('nodemailer');
@@ -22,10 +23,16 @@ app.use(require("express-session")({
     saveUninitialized :  false
     }));
 
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());    
+
 app.use(flash());
 app.locals.moment = require('moment');
 app.use(function(req,res,next){
-   //res.locals.currentUser = req.user; 
+   res.locals.currentUser = req.user; 
    res.locals.error = req.flash("error");
    res.locals.success = req.flash("success");
    next();  //very imp as it is a middleware it requires next operation
@@ -35,7 +42,7 @@ app.get(['/home','/','/landing'],function(req,res){
   res.render('home');
 });
 
-app.get('/createDoctor',function(req,res){
+app.get('/createDoctor',isLoggedIn,function(req,res){
   res.render('createDoctors');
 });
 
@@ -143,6 +150,84 @@ app.post('/book',function(req,res){
   });
 });
 
+app.get('/admin',isLoggedIn,function(req,res){
+  Doctor.find({},function(err,allDoctors){
+            if(err){
+                console.log(err);
+            } 
+            else{
+             // res.send(allDoctors);
+              res.render("admin",{doctors:allDoctors});         
+            }
+    });
+});
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()){
+   return next();
+ }
+ res.redirect('/login');
+}
+
+app.get('/deleteDoctor/:id',function(req,res){
+     Doctor.findByIdAndRemove(req.params.id,function(err){
+          if(err){
+              req.flash("error","Error detected!!");
+              res.redirect("/admin");
+          }else{
+              req.flash("success","Doctor deleted successfully!!");
+              res.redirect("/admin");
+          } 
+    }); 
+});
+
+
+
+//sign up route  
+
+//render the sign up form
+// app.get("/register",function(req,res){
+//     res.render("register"); 
+// });
+
+//sign up logic
+app.post("/register",function(req,res){
+   var newUser = new User({username:req.body.username});
+   //passport-local-mongoose method
+   User.register(newUser,req.body.password,function(err,user){
+        if(err){
+            console.log(err);
+            //return is a simple way of short circuiting 
+            return res.render("register",{"error": err.message});
+        }
+        passport.authenticate("local")(req,res,function(){
+            req.flash("success","admin verified "+user.username);
+            res.redirect("/admin");
+        });
+   });
+}); 
+
+//login routes
+
+//render the login form
+app.get("/login",function(req,res){
+    res.render("login"); 
+});
+//login logic
+app.post("/login",passport.authenticate("local",{ //==============
+    successRedirect:"/admin",               //MIDDLEWARE
+    failureRedirect:"/login",                     //==============
+    failureFlash: true,
+    successFlash: 'admin logged in'
+}),function(req,res){
+});
+
+//logout route
+app.get("/logout",function(req,res){
+    req.logout();
+    req.flash("success","logged you out!!");
+    res.redirect("/");
+});
 
 
 // app.listen(7000,function(){
@@ -153,3 +238,7 @@ app.listen(process.env.PORT,process.env.IP,function(){
      console.log("app server has started on heroku ");
 });
 
+
+//credentials
+//username : Nit-1997
+//password : Clinby@1979
